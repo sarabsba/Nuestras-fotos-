@@ -1,1 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi amor 🩵</title>
 
+<style>
+body{
+  margin:0;
+  background:linear-gradient(135deg,#f0fffd,#d8fff9,#c2f7f0);
+  font-family:Georgia,serif;
+  color:#2f6f6a;
+}
+
+.portada{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+
+.caja{
+  background:white;
+  padding:30px;
+  border-radius:28px;
+  box-shadow:0 0 25px rgba(0,0,0,.15);
+  max-width:430px;
+}
+
+h1{
+  font-size:34px;
+  color:#2f6f6a;
+}
+
+.sobre{
+  font-size:100px;
+  cursor:pointer;
+}
+
+.carta{
+  display:none;
+  max-width:750px;
+  margin:30px auto;
+  background:white;
+  padding:28px;
+  border-radius:25px;
+  box-shadow:0 0 25px rgba(0,0,0,.15);
+  text-align:center;
+}
+
+.foto{
+  width:100%;
+  border-radius:25px;
+  margin:18px 0;
+  box-shadow:0 0 20px rgba(0,0,0,.18);
+}
+
+.texto{
+  font-size:23px;
+  line-height:1.9;
+  color:#7a4b5c;
+  font-style:italic;
+  white-space:pre-line;
+  text-align:center;
+}
+
+.final{
+  font-size:38px;
+  margin-top:30px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="portada" id="portada">
+  <div class="caja">
+    <h1>Para mi amor 🩵💍✨</h1>
+    <div class="sobre" onclick="abrirCarta()">💌</div>
+    <p>Toca para abrir la carta 🩵</p>
+  </div>
+</div>
+
+<div class="carta" id="carta">
+
+<img src="foto1.jpeg" class="foto">
+<img src="foto2.jpeg" class="foto">
+<img src="foto3.jpeg" class="foto">
+<img src="foto4.jpeg" class="foto">
+
+<div class="texto">
+Mi amor espero con todo mi corazon que estas fotos se hagan realidad algun  dia se que hoy son solo imagenes creadas con ia pero cuando te miro se que nuestro futuro juntos va a ser mil veces mejor que cualquier foto
+
+No veo mi vida sin ti te deseo muchisiml y me muero de ganas de empezar a cumplir cada uno de estos sueños a tu lado
+
+Te amo para siempre✨✨🫶🏻💍
+</div>
+
+<div class="final">
+🩵💍✨
+</div>
+
+</div>
+
+<script>
+function abrirCarta(){
+
+  const emojis = ["🩵","💍","✨"];
+
+  for(let i=0;i<80;i++){
+    let e = document.createElement("div");
+    e.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+    e.style.position = "fixed";
+    e.style.left = "50%";
+    e.style.top = "50%";
+    e.style.fontSize = (25 + Math.random()*28) + "px";
+    e.style.zIndex = "9999";
+    e.style.pointerEvents = "none";
+
+    let x = (Math.random() - 0.5) * 1100;
+    let y = (Math.random() - 0.5) * 1100;
+
+    e.animate([
+      { transform:"translate(-50%,-50%) scale(1)", opacity:1 },
+      { transform:`translate(${x}px,${y}px) scale(0.4)`, opacity:0 }
+    ],{
+      duration:1400,
+      easing:"ease-out"
+    });
+
+    document.body.appendChild(e);
+
+    setTimeout(()=>{
+      e.remove();
+    },1400);
+  }
+
+  setTimeout(()=>{
+    document.getElementById("portada").style.display="none";
+    document.getElementById("carta").style.display="block";
+    window.scrollTo(0,0);
+  },700);
+}
+</script>
+
+</body>
+</html>
